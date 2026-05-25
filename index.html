@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
     <title>すて活クエスト</title>
-    <link rel="stylesheet" href="styles.css?v=3" />
+    <link rel="stylesheet" href="styles.css?v=4" />
   </head>
   <body>
     <main class="app-shell">
@@ -37,117 +37,52 @@
           <div class="character-stage" aria-label="冒険者">
             <div class="aura"></div>
             <div class="weapon" id="weaponArt"></div>
-            <div class="avatar">
-              <span class="head"></span>
-              <span class="body"></span>
-              <span class="cape"></span>
-            </div>
+            <div class="avatar"><span class="head"></span><span class="body"></span><span class="cape"></span></div>
           </div>
-          <div>
-            <p class="eyebrow">マイ冒険者</p>
-            <h2 id="heroTitle">余白みならい</h2>
-            <p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p>
-          </div>
+          <div><p class="eyebrow">マイ冒険者</p><h2 id="heroTitle">余白みならい</h2><p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p></div>
         </article>
         <article class="equipment-card">
           <div class="section-title"><span>装備と成長</span><span class="chip" id="growthRank">Rank 1</span></div>
           <div class="weapon-name" id="weaponName">ほうきの杖</div>
-          <div class="stat-grid">
-            <div><span>余白力</span><strong id="spaceStat">1</strong></div>
-            <div><span>決断力</span><strong id="decisionStat">1</strong></div>
-            <div><span>思い出力</span><strong id="memoryStat">1</strong></div>
-          </div>
-          <div class="evolution-track" aria-label="武器進化">
-            <span id="evo1">ほうき</span>
-            <span id="evo2">鍵の杖</span>
-            <span id="evo3">水晶ロッド</span>
-            <span id="evo4">余白の剣</span>
-          </div>
+          <div class="stat-grid"><div><span>余白力</span><strong id="spaceStat">1</strong></div><div><span>決断力</span><strong id="decisionStat">1</strong></div><div><span>思い出力</span><strong id="memoryStat">1</strong></div></div>
+          <div class="evolution-track" aria-label="武器進化"><span id="evo1">ほうき</span><span id="evo2">鍵の杖</span><span id="evo3">水晶ロッド</span><span id="evo4">余白の剣</span></div>
         </article>
       </section>
 
       <section class="guide-section" aria-label="キャラクターコメント">
         <article class="guide-card butler-guide">
-          <div class="guide-face">執</div>
-          <div>
-            <span>AI執事</span>
-            <strong>その服、あなたの未来に必要ですかな？</strong>
-            <p>迷った時は、未来の自分が喜ぶかで選びましょう。</p>
-          </div>
+          <img class="guide-portrait" src="assets/butler.svg" alt="AI執事" />
+          <div><span>AI執事</span><strong>その服、あなたの未来に必要ですかな？</strong><p>迷った時は、未来の自分が喜ぶかで選びましょう。</p></div>
         </article>
         <article class="guide-card hero-guide">
-          <div class="guide-face">冒</div>
-          <div>
-            <span>クエスト冒険者</span>
-            <strong>1つ手放すたびに、装備が育つよ。</strong>
-            <p>小さな勝利を積むほど、部屋も心も軽くなります。</p>
-          </div>
+          <img class="guide-portrait" src="assets/adventurer.svg" alt="クエスト冒険者" />
+          <div><span>クエスト冒険者</span><strong>1つ手放すたびに、装備が育つよ。</strong><p>小さな勝利を積むほど、部屋も心も軽くなります。</p></div>
         </article>
         <article class="guide-card cat-guide">
-          <div class="guide-face">猫</div>
-          <div>
-            <span>すて活案内ねこ</span>
-            <strong>捨てることは、未来の自分へのプレゼントにゃ。</strong>
-            <p>売る、譲る、寄付する。手放し方にも冒険があります。</p>
-          </div>
+          <img class="guide-portrait" src="assets/guide-cat.svg" alt="すて活案内ねこ" />
+          <div><span>すて活案内ねこ</span><strong>手放すことは、未来の自分へのプレゼント。</strong><p>売る、譲る、寄付する。手放し方にも冒険があります。</p></div>
         </article>
       </section>
 
       <section class="command-center">
-        <div class="panel">
-          <div class="section-title"><span>今日のクエスト</span><button id="completeQuest" class="ghost-button" type="button">達成</button></div>
-          <article class="daily-quest" id="dailyQuest"></article>
-          <div id="quests" class="quests"></div>
-        </div>
-
+        <div class="panel"><div class="section-title"><span>今日のクエスト</span><button id="completeQuest" class="ghost-button" type="button">達成</button></div><article class="daily-quest" id="dailyQuest"></article><div id="quests" class="quests"></div></div>
         <form id="itemForm" class="panel">
           <div class="section-title"><span>アイテム登録</span><span class="chip">AI執事同行中</span></div>
-          <label class="photo-drop">
-            <input id="photoInput" type="file" accept="image/*" capture="environment" />
-            <img id="preview" alt="" />
-            <span id="photoText">写真を撮る / 選ぶ</span>
-          </label>
-          <div class="field-grid">
-            <label>アイテム名<input id="itemName" type="text" placeholder="例：3年着ていない服" required /></label>
-            <label>レア度<select id="rarity"><option value="10">ノーマル +10</option><option value="30">レア +30</option><option value="100">SR +100</option><option value="300">UR +300</option></select></label>
-          </div>
-          <fieldset>
-            <legend>手放し方</legend>
-            <div class="action-grid">
-              <label><input type="radio" name="action" value="寄付" checked />寄付</label>
-              <label><input type="radio" name="action" value="売る" />売る</label>
-              <label><input type="radio" name="action" value="譲る" />譲る</label>
-              <label><input type="radio" name="action" value="思い出保存" />思い出保存</label>
-            </div>
-          </fieldset>
+          <label class="photo-drop"><input id="photoInput" type="file" accept="image/*" capture="environment" /><img id="preview" alt="" /><span id="photoText">写真を撮る / 選ぶ</span></label>
+          <div class="field-grid"><label>アイテム名<input id="itemName" type="text" placeholder="例：3年着ていない服" required /></label><label>レア度<select id="rarity"><option value="10">ノーマル +10</option><option value="30">レア +30</option><option value="100">SR +100</option><option value="300">UR +300</option></select></label></div>
+          <fieldset><legend>手放し方</legend><div class="action-grid"><label><input type="radio" name="action" value="寄付" checked />寄付</label><label><input type="radio" name="action" value="売る" />売る</label><label><input type="radio" name="action" value="譲る" />譲る</label><label><input type="radio" name="action" value="思い出保存" />思い出保存</label></div></fieldset>
           <button class="primary-button" type="submit">手放してEXP獲得</button>
         </form>
       </section>
 
       <section class="timeline-section">
-        <div class="butler-card">
-          <img src="assets/sutekatsu-icon.svg" alt="すて活クエストのアイコン" />
-          <div><p class="eyebrow">AI執事の名言</p><blockquote id="butlerQuote">その服、あなたの未来に必要ですかな？</blockquote></div>
-        </div>
-        <div class="panel">
-          <div class="section-title"><span>冒険ログ</span><button id="clearLog" class="ghost-button" type="button">整理</button></div>
-          <div id="emptyState" class="empty-state">最初のアイテムを登録すると、ここに冒険の記録が残ります。</div>
-          <ul id="history" class="history"></ul>
-        </div>
+        <div class="butler-card"><img src="assets/sutekatsu-icon.svg" alt="すて活クエストのアイコン" /><div><p class="eyebrow">AI執事の名言</p><blockquote id="butlerQuote">その服、あなたの未来に必要ですかな？</blockquote></div></div>
+        <div class="panel"><div class="section-title"><span>冒険ログ</span><button id="clearLog" class="ghost-button" type="button">整理</button></div><div id="emptyState" class="empty-state">最初のアイテムを登録すると、ここに冒険の記録が残ります。</div><ul id="history" class="history"></ul></div>
       </section>
 
       <section class="share-section">
-        <div class="share-card">
-          <p class="eyebrow">共有用メモ</p>
-          <h2>片付けを「小さな冒険」に変えるMVP</h2>
-          <p>まずは7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
-          <div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>キャラの言葉が効くか</span></div>
-        </div>
-        <div class="share-message">
-          <label for="shareText">仕事仲間に送る一言</label>
-          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea>
-          <button id="copyShareText" class="ghost-button" type="button">文面をコピー</button>
-        </div>
+        <div class="share-card"><p class="eyebrow">共有用メモ</p><h2>片付けを「小さな冒険」に変えるMVP</h2><p>まずは7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p><div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>キャラの言葉が効くか</span></div></div>
+        <div class="share-message"><label for="shareText">仕事仲間に送る一言</label><textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea><button id="copyShareText" class="ghost-button" type="button">文面をコピー</button></div>
       </section>
     </main>
     <div id="levelUp" class="level-up" role="status" aria-live="assertive">LEVEL UP!</div>
