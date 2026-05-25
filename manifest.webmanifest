@@ -1,0 +1,19 @@
+{
+  "name": "すて活クエスト",
+  "short_name": "すて活",
+  "description": "片付けを小さな冒険に変える、7日間クエスト型PWAプロトタイプ。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#e9fbff",
+  "theme_color": "#e9fbff",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "assets/sutekatsu-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
