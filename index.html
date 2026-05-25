@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
     <title>すて活クエスト</title>
-    <link rel="stylesheet" href="styles.css?v=1" />
+    <link rel="stylesheet" href="styles.css?v=2" />
   </head>
   <body>
     <main class="app-shell">
@@ -30,6 +30,40 @@
         <article><span>7日間クエスト</span><strong id="dayLabel">Day 1</strong></article>
         <article><span>連続達成</span><strong><span id="streak">0</span>日</strong></article>
         <article><span>手放した数</span><strong><span id="totalItems">0</span>個</strong></article>
+      </section>
+
+      <section class="growth-section">
+        <article class="character-card">
+          <div class="character-stage" aria-label="冒険者">
+            <div class="aura"></div>
+            <div class="weapon" id="weaponArt"></div>
+            <div class="avatar">
+              <span class="head"></span>
+              <span class="body"></span>
+              <span class="cape"></span>
+            </div>
+          </div>
+          <div>
+            <p class="eyebrow">マイ冒険者</p>
+            <h2 id="heroTitle">余白みならい</h2>
+            <p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p>
+          </div>
+        </article>
+        <article class="equipment-card">
+          <div class="section-title"><span>装備と成長</span><span class="chip" id="growthRank">Rank 1</span></div>
+          <div class="weapon-name" id="weaponName">ほうきの杖</div>
+          <div class="stat-grid">
+            <div><span>余白力</span><strong id="spaceStat">1</strong></div>
+            <div><span>決断力</span><strong id="decisionStat">1</strong></div>
+            <div><span>思い出力</span><strong id="memoryStat">1</strong></div>
+          </div>
+          <div class="evolution-track" aria-label="武器進化">
+            <span id="evo1">ほうき</span>
+            <span id="evo2">鍵の杖</span>
+            <span id="evo3">水晶ロッド</span>
+            <span id="evo4">余白の剣</span>
+          </div>
+        </article>
       </section>
 
       <section class="command-center">
@@ -79,17 +113,17 @@
         <div class="share-card">
           <p class="eyebrow">共有用メモ</p>
           <h2>片付けを「小さな冒険」に変えるMVP</h2>
-          <p>まずは7日間クエスト、EXP、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
-          <div class="feedback-points"><span>続けたくなるか</span><span>手放す心理ハードルが下がるか</span><span>AI執事の言葉が効くか</span></div>
+          <p>まずは7日間クエスト、EXP、キャラクター成長、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
+          <div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>AI執事の言葉が効くか</span></div>
         </div>
         <div class="share-message">
           <label for="shareText">仕事仲間に送る一言</label>
-          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、冒険ログが入った試作なので、触ってみて「続けたくなるか」「手放しやすくなるか」を見てほしいです。</textarea>
+          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea>
           <button id="copyShareText" class="ghost-button" type="button">文面をコピー</button>
         </div>
       </section>
     </main>
     <div id="levelUp" class="level-up" role="status" aria-live="assertive">LEVEL UP!</div>
-    <script src="app.js?v=1"></script>
+    <script src="app.js?v=2"></script>
   </body>
 </html>
