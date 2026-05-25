@@ -1,8 +1,8 @@
-const CACHE_NAME = "sutekatsu-quest-v2";
+const CACHE_NAME = "sutekatsu-quest-v3";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=2",
+  "./styles.css?v=3",
   "./app.js?v=2",
   "./manifest.webmanifest",
   "./assets/sutekatsu-icon.svg",
