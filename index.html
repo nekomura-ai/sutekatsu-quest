@@ -9,14 +9,16 @@
     <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
     <title>すて活クエスト</title>
     <link rel="stylesheet" href="styles.css?v=4" />
+    <link rel="stylesheet" href="story.css?v=1" />
   </head>
   <body>
     <main class="app-shell">
-      <section class="hero">
+      <section class="hero story-hero">
         <div>
           <p class="eyebrow">人生のデトックスRPG</p>
           <h1>すて活クエスト</h1>
-          <p class="lead">物を手放すたびに、未来の自分が軽くなる。今日の一歩をEXPに変える片付けアプリ。</p>
+          <p class="lead">散らかった部屋に眠っているのは、不要な物だけではありません。忘れていた時間、気力、未来の余白。手放すたびに、それらを取り戻す冒険が始まります。</p>
+          <div class="hero-actions"><a href="#quest" class="primary-link">今日のクエストへ</a><a href="#story" class="ghost-link">物語を見る</a></div>
         </div>
         <div class="level-card" aria-live="polite">
           <span>現在レベル</span>
@@ -32,6 +34,20 @@
         <article><span>手放した数</span><strong><span id="totalItems">0</span>個</strong></article>
       </section>
 
+      <section class="story-section" id="story">
+        <div class="story-copy">
+          <p class="eyebrow">Prologue</p>
+          <h2>ここは、余白を取り戻す小さな王国。</h2>
+          <p>3年触れていない物は、ただの保管ではなく、未来を重くする執着かもしれません。けれど捨てることが目的ではありません。大切なものを選び直し、今日の自分に少し呼吸を戻すこと。それがこの冒険の目的です。</p>
+        </div>
+        <div class="chapter-map" aria-label="7日間の物語">
+          <article><span>Day 1</span><strong>財布の扉</strong><p>一番小さな場所から、決断力を起こす。</p></article>
+          <article><span>Day 3</span><strong>思い出の結晶</strong><p>写真に残し、物から記録へ移す。</p></article>
+          <article><span>Day 5</span><strong>命を守る棚</strong><p>防災と片付けをつなげる。</p></article>
+          <article><span>Day 7</span><strong>余白の王冠</strong><p>Before / Afterで変化を受け取る。</p></article>
+        </div>
+      </section>
+
       <section class="growth-section">
         <article class="character-card">
           <div class="character-stage" aria-label="冒険者">
@@ -39,7 +55,7 @@
             <div class="weapon" id="weaponArt"></div>
             <div class="avatar"><span class="head"></span><span class="body"></span><span class="cape"></span></div>
           </div>
-          <div><p class="eyebrow">マイ冒険者</p><h2 id="heroTitle">余白みならい</h2><p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p></div>
+          <div><p class="eyebrow">主人公</p><h2 id="heroTitle">余白みならい</h2><p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p></div>
         </article>
         <article class="equipment-card">
           <div class="section-title"><span>装備と成長</span><span class="chip" id="growthRank">Rank 1</span></div>
@@ -64,7 +80,7 @@
         </article>
       </section>
 
-      <section class="command-center">
+      <section class="command-center" id="quest">
         <div class="panel"><div class="section-title"><span>今日のクエスト</span><button id="completeQuest" class="ghost-button" type="button">達成</button></div><article class="daily-quest" id="dailyQuest"></article><div id="quests" class="quests"></div></div>
         <form id="itemForm" class="panel">
           <div class="section-title"><span>アイテム登録</span><span class="chip">AI執事同行中</span></div>
@@ -81,8 +97,8 @@
       </section>
 
       <section class="share-section">
-        <div class="share-card"><p class="eyebrow">共有用メモ</p><h2>片付けを「小さな冒険」に変えるMVP</h2><p>まずは7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p><div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>キャラの言葉が効くか</span></div></div>
-        <div class="share-message"><label for="shareText">仕事仲間に送る一言</label><textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea><button id="copyShareText" class="ghost-button" type="button">文面をコピー</button></div>
+        <div class="share-card"><p class="eyebrow">共有用メモ</p><h2>片付けを「小さな冒険」に変えるMVP</h2><p>7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p><div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>物語が背中を押すか</span></div></div>
+        <div class="share-message"><label for="shareText">仕事仲間に送る一言</label><textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、ストーリー導線、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea><button id="copyShareText" class="ghost-button" type="button">文面をコピー</button></div>
       </section>
     </main>
     <div id="levelUp" class="level-up" role="status" aria-live="assertive">LEVEL UP!</div>
