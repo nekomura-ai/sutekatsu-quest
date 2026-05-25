@@ -8,7 +8,7 @@
     <link rel="manifest" href="manifest.webmanifest" />
     <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
     <title>すて活クエスト</title>
-    <link rel="stylesheet" href="styles.css?v=2" />
+    <link rel="stylesheet" href="styles.css?v=3" />
   </head>
   <body>
     <main class="app-shell">
@@ -66,6 +66,33 @@
         </article>
       </section>
 
+      <section class="guide-section" aria-label="キャラクターコメント">
+        <article class="guide-card butler-guide">
+          <div class="guide-face">執</div>
+          <div>
+            <span>AI執事</span>
+            <strong>その服、あなたの未来に必要ですかな？</strong>
+            <p>迷った時は、未来の自分が喜ぶかで選びましょう。</p>
+          </div>
+        </article>
+        <article class="guide-card hero-guide">
+          <div class="guide-face">冒</div>
+          <div>
+            <span>クエスト冒険者</span>
+            <strong>1つ手放すたびに、装備が育つよ。</strong>
+            <p>小さな勝利を積むほど、部屋も心も軽くなります。</p>
+          </div>
+        </article>
+        <article class="guide-card cat-guide">
+          <div class="guide-face">猫</div>
+          <div>
+            <span>すて活案内ねこ</span>
+            <strong>捨てることは、未来の自分へのプレゼントにゃ。</strong>
+            <p>売る、譲る、寄付する。手放し方にも冒険があります。</p>
+          </div>
+        </article>
+      </section>
+
       <section class="command-center">
         <div class="panel">
           <div class="section-title"><span>今日のクエスト</span><button id="completeQuest" class="ghost-button" type="button">達成</button></div>
@@ -113,12 +140,12 @@
         <div class="share-card">
           <p class="eyebrow">共有用メモ</p>
           <h2>片付けを「小さな冒険」に変えるMVP</h2>
-          <p>まずは7日間クエスト、EXP、キャラクター成長、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
-          <div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>AI執事の言葉が効くか</span></div>
+          <p>まずは7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
+          <div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>キャラの言葉が効くか</span></div>
         </div>
         <div class="share-message">
           <label for="shareText">仕事仲間に送る一言</label>
-          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea>
+          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea>
           <button id="copyShareText" class="ghost-button" type="button">文面をコピー</button>
         </div>
       </section>
