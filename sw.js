@@ -1,11 +1,14 @@
-const CACHE_NAME = "sutekatsu-quest-v3";
+const CACHE_NAME = "sutekatsu-quest-v4";
 const ASSETS = [
   "./",
   "./index.html",
-  "./styles.css?v=3",
+  "./styles.css?v=4",
   "./app.js?v=2",
   "./manifest.webmanifest",
   "./assets/sutekatsu-icon.svg",
+  "./assets/butler.svg",
+  "./assets/adventurer.svg",
+  "./assets/guide-cat.svg",
 ];
 
 self.addEventListener("install", (event) => {
