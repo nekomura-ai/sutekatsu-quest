@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta name="theme-color" content="#e9fbff" />
+    <meta name="description" content="片付けを小さな冒険に変える、7日間クエスト型PWAプロトタイプ。" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
+    <title>すて活クエスト</title>
+    <link rel="stylesheet" href="styles.css?v=1" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero">
+        <div>
+          <p class="eyebrow">人生のデトックスRPG</p>
+          <h1>すて活クエスト</h1>
+          <p class="lead">物を手放すたびに、未来の自分が軽くなる。今日の一歩をEXPに変える片付けアプリ。</p>
+        </div>
+        <div class="level-card" aria-live="polite">
+          <span>現在レベル</span>
+          <strong id="level">1</strong>
+          <div class="meter" aria-label="経験値"><span id="xpBar"></span></div>
+          <small><span id="xp">0</span> / <span id="nextXp">100</span> EXP</small>
+        </div>
+      </section>
+
+      <section class="status-strip" aria-label="冒険ステータス">
+        <article><span>7日間クエスト</span><strong id="dayLabel">Day 1</strong></article>
+        <article><span>連続達成</span><strong><span id="streak">0</span>日</strong></article>
+        <article><span>手放した数</span><strong><span id="totalItems">0</span>個</strong></article>
+      </section>
+
+      <section class="command-center">
+        <div class="panel">
+          <div class="section-title"><span>今日のクエスト</span><button id="completeQuest" class="ghost-button" type="button">達成</button></div>
+          <article class="daily-quest" id="dailyQuest"></article>
+          <div id="quests" class="quests"></div>
+        </div>
+
+        <form id="itemForm" class="panel">
+          <div class="section-title"><span>アイテム登録</span><span class="chip">AI執事同行中</span></div>
+          <label class="photo-drop">
+            <input id="photoInput" type="file" accept="image/*" capture="environment" />
+            <img id="preview" alt="" />
+            <span id="photoText">写真を撮る / 選ぶ</span>
+          </label>
+          <div class="field-grid">
+            <label>アイテム名<input id="itemName" type="text" placeholder="例：3年着ていない服" required /></label>
+            <label>レア度<select id="rarity"><option value="10">ノーマル +10</option><option value="30">レア +30</option><option value="100">SR +100</option><option value="300">UR +300</option></select></label>
+          </div>
+          <fieldset>
+            <legend>手放し方</legend>
+            <div class="action-grid">
+              <label><input type="radio" name="action" value="寄付" checked />寄付</label>
+              <label><input type="radio" name="action" value="売る" />売る</label>
+              <label><input type="radio" name="action" value="譲る" />譲る</label>
+              <label><input type="radio" name="action" value="思い出保存" />思い出保存</label>
+            </div>
+          </fieldset>
+          <button class="primary-button" type="submit">手放してEXP獲得</button>
+        </form>
+      </section>
+
+      <section class="timeline-section">
+        <div class="butler-card">
+          <img src="assets/sutekatsu-icon.svg" alt="すて活クエストのアイコン" />
+          <div><p class="eyebrow">AI執事の名言</p><blockquote id="butlerQuote">その服、あなたの未来に必要ですかな？</blockquote></div>
+        </div>
+        <div class="panel">
+          <div class="section-title"><span>冒険ログ</span><button id="clearLog" class="ghost-button" type="button">整理</button></div>
+          <div id="emptyState" class="empty-state">最初のアイテムを登録すると、ここに冒険の記録が残ります。</div>
+          <ul id="history" class="history"></ul>
+        </div>
+      </section>
+
+      <section class="share-section">
+        <div class="share-card">
+          <p class="eyebrow">共有用メモ</p>
+          <h2>片付けを「小さな冒険」に変えるMVP</h2>
+          <p>まずは7日間クエスト、EXP、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p>
+          <div class="feedback-points"><span>続けたくなるか</span><span>手放す心理ハードルが下がるか</span><span>AI執事の言葉が効くか</span></div>
+        </div>
+        <div class="share-message">
+          <label for="shareText">仕事仲間に送る一言</label>
+          <textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、冒険ログが入った試作なので、触ってみて「続けたくなるか」「手放しやすくなるか」を見てほしいです。</textarea>
+          <button id="copyShareText" class="ghost-button" type="button">文面をコピー</button>
+        </div>
+      </section>
+    </main>
+    <div id="levelUp" class="level-up" role="status" aria-live="assertive">LEVEL UP!</div>
+    <script src="app.js?v=1"></script>
+  </body>
+</html>
