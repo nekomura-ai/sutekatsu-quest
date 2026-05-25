@@ -28,6 +28,12 @@ const quotes = [
   "今日は小さな勝利で十分。余白は冒険の入り口です。",
   "よき決断です。部屋も心も、少し呼吸を取り戻しましたぞ。",
 ];
+const growthStages = [
+  { min: 1, title: "余白みならい", weapon: "ほうきの杖", art: "I", story: "最初の一歩を待っています。小さな整理が、未来の装備になります。" },
+  { min: 2, title: "整理の見習い騎士", weapon: "鍵の杖", art: "II", story: "迷いの扉を開ける力が芽生えました。選ぶたびに身軽になります。" },
+  { min: 3, title: "思い出を守る旅人", weapon: "水晶ロッド", art: "III", story: "大切なものと手放すものを見分ける目が育っています。" },
+  { min: 5, title: "余白の賢者", weapon: "余白の剣", art: "IV", story: "部屋だけでなく、時間と気持ちにも余白を作れる冒険者です。" },
+];
 
 const $ = (selector) => document.querySelector(selector);
 const levelEl = $("#level");
@@ -51,6 +57,14 @@ const totalItemsEl = $("#totalItems");
 const completeQuestButton = $("#completeQuest");
 const copyShareTextButton = $("#copyShareText");
 const shareTextEl = $("#shareText");
+const heroTitleEl = $("#heroTitle");
+const heroStoryEl = $("#heroStory");
+const weaponNameEl = $("#weaponName");
+const weaponArtEl = $("#weaponArt");
+const growthRankEl = $("#growthRank");
+const spaceStatEl = $("#spaceStat");
+const decisionStatEl = $("#decisionStat");
+const memoryStatEl = $("#memoryStat");
 let selectedPhoto = "";
 
 function daysBetween(start, end) {
@@ -59,6 +73,9 @@ function daysBetween(start, end) {
 function getQuestIndex() { return Math.min(daysBetween(state.startDate, todayKey), sevenDayQuests.length - 1); }
 function getLevel(xp) { return Math.floor(xp / 100) + 1; }
 function getNextXp(xp) { return getLevel(xp) * 100; }
+function getGrowthStage(level) {
+  return growthStages.reduce((current, stage) => (level >= stage.min ? stage : current), growthStages[0]);
+}
 function getStreak() {
   let streak = 0;
   const completed = new Set(state.completedDays);
@@ -99,6 +116,22 @@ function renderStats() {
   streakEl.textContent = getStreak();
   totalItemsEl.textContent = state.history.length;
 }
+function renderGrowth() {
+  const level = getLevel(state.xp);
+  const stage = getGrowthStage(level);
+  const itemCount = state.history.length;
+  heroTitleEl.textContent = stage.title;
+  heroStoryEl.textContent = stage.story;
+  weaponNameEl.textContent = stage.weapon;
+  weaponArtEl.textContent = stage.art;
+  growthRankEl.textContent = `Rank ${growthStages.indexOf(stage) + 1}`;
+  spaceStatEl.textContent = Math.max(1, level + itemCount);
+  decisionStatEl.textContent = Math.max(1, level + state.completedDays.length);
+  memoryStatEl.textContent = Math.max(1, 1 + state.history.filter((item) => item.action === "思い出保存").length);
+  document.querySelectorAll(".evolution-track span").forEach((node, index) => {
+    node.classList.toggle("is-active", index <= growthStages.indexOf(stage));
+  });
+}
 function renderDailyQuest() {
   const index = getQuestIndex();
   const quest = sevenDayQuests[index];
@@ -125,7 +158,7 @@ function renderHistory() {
 function renderQuote() {
   quoteEl.textContent = quotes[Math.min(state.history.length + state.completedDays.length, quotes.length - 1)];
 }
-function render() { renderStats(); renderDailyQuest(); renderBonusQuests(); renderHistory(); renderQuote(); }
+function render() { renderStats(); renderGrowth(); renderDailyQuest(); renderBonusQuests(); renderHistory(); renderQuote(); }
 
 photoInput.addEventListener("change", () => {
   const [file] = photoInput.files;
