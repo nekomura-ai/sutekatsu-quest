@@ -9,7 +9,7 @@
     <link rel="icon" href="assets/sutekatsu-icon.svg" type="image/svg+xml" />
     <title>すて活クエスト</title>
     <link rel="stylesheet" href="styles.css?v=4" />
-    <link rel="stylesheet" href="story.css?v=3" />
+    <link rel="stylesheet" href="story.css?v=4" />
   </head>
   <body>
     <main class="app-shell">
@@ -21,8 +21,7 @@
           <div class="hero-actions"><a href="#quest" class="primary-link">今日のクエストへ</a><a href="#story" class="ghost-link">物語を見る</a></div>
         </div>
         <div class="level-card" aria-live="polite">
-          <span>現在レベル</span>
-          <strong id="level">1</strong>
+          <span>現在レベル</span><strong id="level">1</strong>
           <div class="meter" aria-label="経験値"><span id="xpBar"></span></div>
           <small><span id="xp">0</span> / <span id="nextXp">100</span> EXP</small>
         </div>
@@ -47,10 +46,20 @@
         </div>
         <div class="poster-quote">
           <img src="assets/butler.svg" alt="AI執事" />
-          <div>
-            <p>AI執事の名言</p>
-            <strong>3年触ってないなら、それは“保管”じゃなく“執着”ですぞ。</strong>
-          </div>
+          <div><p>AI執事の名言</p><strong>3年触ってないなら、それは“保管”じゃなく“執着”ですぞ。</strong></div>
+        </div>
+      </section>
+
+      <section class="stock-section" aria-label="ローリングストック防災クエスト">
+        <div class="stock-copy">
+          <p class="eyebrow">Safety Quest</p>
+          <h2>命を守る棚をつくる</h2>
+          <p>手放して空いた場所に、未来の安心を置く。すて活クエストでは、防災を「怖い準備」ではなく、家族と自分を守る装備づくりとして扱います。</p>
+        </div>
+        <div class="stock-grid">
+          <article class="stock-card stock-box"><span>01</span><strong>ローリングストックBOX</strong><p>食べながら備える保存食・日用品の定位置。賞味期限を見える化して、使ったら補充。</p></article>
+          <article class="stock-card stock-water"><span>02</span><strong>1週間分の飲み水</strong><p>1人1日3Lを目安に7日分。家族人数に合わせて、置き場所と本数をチェック。</p></article>
+          <article class="stock-card stock-toilet"><span>03</span><strong>1週間分のトイレ</strong><p>携帯トイレ・袋・消臭剤をセット化。水が止まっても生活を守る最重要装備。</p></article>
         </div>
       </section>
 
@@ -69,18 +78,14 @@
         <div class="chapter-map" aria-label="7日間の物語">
           <article><span>Day 1</span><strong>財布の扉</strong><p>一番小さな場所から、決断力を起こす。</p></article>
           <article><span>Day 3</span><strong>思い出の結晶</strong><p>写真に残し、物から記録へ移す。</p></article>
-          <article><span>Day 5</span><strong>命を守る棚</strong><p>防災と片付けをつなげる。</p></article>
+          <article><span>Day 5</span><strong>命を守る棚</strong><p>ローリングストックBOX、水、トイレを整える。</p></article>
           <article><span>Day 7</span><strong>余白の王冠</strong><p>Before / Afterで変化を受け取る。</p></article>
         </div>
       </section>
 
       <section class="growth-section">
         <article class="character-card">
-          <div class="character-stage" aria-label="冒険者">
-            <div class="aura"></div>
-            <div class="weapon" id="weaponArt"></div>
-            <div class="avatar"><span class="head"></span><span class="body"></span><span class="cape"></span></div>
-          </div>
+          <div class="character-stage" aria-label="冒険者"><div class="aura"></div><div class="weapon" id="weaponArt"></div><div class="avatar"><span class="head"></span><span class="body"></span><span class="cape"></span></div></div>
           <div><p class="eyebrow">主人公</p><h2 id="heroTitle">余白みならい</h2><p id="heroStory">最初の一歩を待っています。小さな整理が、未来の装備になります。</p></div>
         </article>
         <article class="equipment-card">
@@ -92,18 +97,9 @@
       </section>
 
       <section class="guide-section" aria-label="キャラクターコメント">
-        <article class="guide-card butler-guide">
-          <img class="guide-portrait" src="assets/butler.svg" alt="AI執事" />
-          <div><span>AI執事</span><strong>その服、あなたの未来に必要ですかな？</strong><p>迷った時は、未来の自分が喜ぶかで選びましょう。</p></div>
-        </article>
-        <article class="guide-card hero-guide">
-          <img class="guide-portrait" src="assets/adventurer.svg" alt="クエスト冒険者" />
-          <div><span>クエスト冒険者</span><strong>1つ手放すたびに、装備が育つよ。</strong><p>小さな勝利を積むほど、部屋も心も軽くなります。</p></div>
-        </article>
-        <article class="guide-card cat-guide">
-          <img class="guide-portrait" src="assets/guide-cat.svg" alt="すて活案内ねこ" />
-          <div><span>すて活案内ねこ</span><strong>手放すことは、未来の自分へのプレゼント。</strong><p>売る、譲る、寄付する。手放し方にも冒険があります。</p></div>
-        </article>
+        <article class="guide-card butler-guide"><img class="guide-portrait" src="assets/butler.svg" alt="AI執事" /><div><span>AI執事</span><strong>備蓄は、未来の自分を助ける宝箱ですぞ。</strong><p>ローリングストックなら、日常と防災が同じ棚でつながります。</p></div></article>
+        <article class="guide-card hero-guide"><img class="guide-portrait" src="assets/adventurer.svg" alt="クエスト冒険者" /><div><span>クエスト冒険者</span><strong>水とトイレは、命を守る最強装備だよ。</strong><p>小さな勝利を積むほど、部屋も心も軽くなります。</p></div></article>
+        <article class="guide-card cat-guide"><img class="guide-portrait" src="assets/guide-cat.svg" alt="すて活案内ねこ" /><div><span>すて活案内ねこ</span><strong>空いた棚に安心を置くにゃ。</strong><p>捨てる・整える・備える。これで暮らしの守備力アップ。</p></div></article>
       </section>
 
       <section class="command-center" id="quest">
@@ -123,11 +119,11 @@
       </section>
 
       <section class="share-section">
-        <div class="share-card"><p class="eyebrow">共有用メモ</p><h2>片付けを「小さな冒険」に変えるMVP</h2><p>7日間クエスト、EXP、キャラクター成長、仲間コメント、冒険ログの体験が気持ちよく続くかを検証します。データはこの端末の中だけに保存されます。</p><div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>物語が背中を押すか</span></div></div>
-        <div class="share-message"><label for="shareText">仕事仲間に送る一言</label><textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。7日間クエスト、EXP、レベル、武器成長、キャラコメント、ストーリー導線、冒険ログが入った試作なので、触ってみて「続けたくなるか」「成長を感じるか」を見てほしいです。</textarea><button id="copyShareText" class="ghost-button" type="button">文面をコピー</button></div>
+        <div class="share-card"><p class="eyebrow">共有用メモ</p><h2>片付けと防災を「小さな冒険」に変えるMVP</h2><p>7日間クエスト、EXP、キャラクター成長、ローリングストックBOX、1週間分の飲み水、1週間分のトイレ、冒険ログの体験が気持ちよく続くかを検証します。</p><div class="feedback-points"><span>続けたくなるか</span><span>成長を感じるか</span><span>備える行動につながるか</span></div></div>
+        <div class="share-message"><label for="shareText">仕事仲間に送る一言</label><textarea id="shareText" readonly>片付けをRPG化する「すて活クエスト」のMVPを作っています。ローリングストックBOX、1週間分の飲み水、1週間分のトイレも入れて、片付けと防災がつながる体験にしました。触ってみて「続けたくなるか」「備える行動につながるか」を見てほしいです。</textarea><button id="copyShareText" class="ghost-button" type="button">文面をコピー</button></div>
       </section>
     </main>
     <div id="levelUp" class="level-up" role="status" aria-live="assertive">LEVEL UP!</div>
-    <script src="app.js?v=2"></script>
+    <script src="app.js?v=3"></script>
   </body>
 </html>
