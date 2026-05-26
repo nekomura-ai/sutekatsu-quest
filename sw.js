@@ -1,4 +1,4 @@
-const CACHE_NAME = "sutekatsu-quest-v7";
+const CACHE_NAME = "sutekatsu-quest-v8";
 const ASSETS = [
   "./",
   "./index.html",
